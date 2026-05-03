@@ -1,2 +1,12 @@
 # Grupa54-TPTP-2026
-Završni projekat iz TPTP-a. Tema: Turistička atrakcija - Panonika Tuzla
+<b>Završni projekat iz TPTP-a.</b>
+
+<b>Tema:</b> Turistička atrakcija - Panonika Tuzla
+
+<b>Članovi:</b> 
+
+Nejra Smajlović - <br> 
+Nermin Karamujić - nerminkaramujic<br> 
+Nešad Bašić - 
+
+<b>Opis:</b> 
