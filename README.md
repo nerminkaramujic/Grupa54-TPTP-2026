@@ -5,8 +5,8 @@
 
 <b>Članovi:</b> 
 
-Nejra Smajlović - <br> 
+Nejra Smajlović - smjlvc<br> 
 Nermin Karamujić - nerminkaramujic<br> 
-Nešad Bašić - 
+Nešad Bašić - NB-bit632
 
 <b>Opis:</b> 
