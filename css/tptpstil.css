@@ -232,5 +232,91 @@ aside iframe {
 
 }
 
+/*Nerminov kod gore*/
+
+.uvodna-sekcija {
+    height: 70vh; /* Visina sekcije */
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                      url('../images/slika-uvodna.jpg'); 
+    background-size: cover;
+    background-position: center;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-family: var(--glavni-font); 
+    padding: var(--standardni-razmak); 
+}
+
+.uvodni-sadrzaj h1 {
+    font-size: 3rem;
+    color: white; 
+    margin-bottom: var(--standardni-razmak);
+}
+
+.uvodni-sadrzaj p {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+}
+
+.uvodno-dugme {
+    background-color: var(--main-text-primarna-boja); 
+    color: white;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: var(--standardna-velicina-fonta);
+    transition: transform 0.3s ease, background-color 0.3s ease;  
+}
+
+.uvodno-dugme:hover {
+    background-color: var(--main-text-sekundarna-boja); /* Promjena u narandžastu na hover */
+    transform: scale(1.05); /* Mala animacija na hover */ 
+}
+
+
+.tekst-sekcija {
+    padding: var(--standardni-razmak);
+    max-width: 1100px;
+    margin: 0 auto;
+    font-family: var(--glavni-font);
+}
+
+.tekst-sekcija h2 {
+    color: var(--main-text-primarna-boja);
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--main-pozadina-boja);
+    padding-bottom: 10px;
+}
+
+.fleks-kontejner {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: var(--standardni-razmak);
+    flex-wrap: wrap; 
+}
+
+.tekst-kolona {
+    flex: 2; /* Tekst zauzima više prostora */
+    min-width: 300px;
+    line-height: 1.6;
+    font-size: var(--standardna-velicina-fonta);
+    color: #333;
+}
+
+.slika-kolona {
+    flex: 1; /* Slika zauzima manje prostora */
+    min-width: 280px;
+}
+
+.responzivna-slika {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
 
 
