@@ -58,10 +58,13 @@ body {
 
 }
 
-main { 
+#main-na-indexu { 
 
 
     flex: 1;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--main-pozadina-boja);
 
 }
 
@@ -72,7 +75,6 @@ main {
     align-items: center;
     flex-direction: row;
     background-color: var(--header-pozadina-boja);
-    
     gap: 35px;
 }
 
@@ -128,7 +130,7 @@ main {
 
 }
 
-nav { 
+#nav-na-indexu { 
 
   background-color: var(--main-pozadina-boja);
   padding: 20px;
@@ -138,15 +140,8 @@ nav {
 
 }
 
-main { 
 
-padding: 20px;
-border-radius: 10px;
-background-color: var(--main-pozadina-boja);
-
-}
-
-main hr, aside hr, nav hr{
+#main-na-indexu hr, #aside-na-indexu hr, #nav-na-indexu hr{
 
     background-color: var(--main-text-primarna-boja);
     border: none;
@@ -156,7 +151,7 @@ main hr, aside hr, nav hr{
 }
 
 
-aside { 
+#aside-na-indexu  { 
 
 display: flex;
 flex-direction: column;
@@ -169,10 +164,10 @@ align-items: center;
 }
 
 
-aside iframe { 
+#aside-na-indexu iframe { 
 
 
-    max-width: 100%;
+max-width: 100%;
 
 
 }
@@ -183,7 +178,6 @@ aside iframe {
     flex-direction: column;
     font-size: 28px;
     font-weight: bold;
-
     height: 100%;    
     justify-content: center;
     align-items: center;
