@@ -78,7 +78,7 @@ body {
 #lista-u-headeru button:hover {
     background-color: #f2f2f2;
     color: var(--header-pozadina-boja);
-    transition: 0.276s ease;
+    transition: 0.336s ease;
 }
 
 #glavni-container { 
@@ -91,21 +91,12 @@ body {
     color: var(--main-text-primarna-boja);
 }
 
-/*
-#nav-na-indexu { 
-    background-color: var(--main-pozadina-boja);
-    padding: 1.25rem;
-    border-radius: 0.625rem;
-    display: flex;
-    flex-direction: column;
-}
-*/
 
 #nav-na-indexu,#aside-na-indexu { 
     position: sticky; /* nzm da li bi ostavio da se ne krece*/
     top: 7rem;
     align-self: start; 
-    max-height: calc(100vh - 8rem); 
+    max-height: calc(100vh - 8rem); /* Gemini odredio visinu nav-a i asid-a tako da ne idu preko */
     overflow-y: auto;
 } 
 
@@ -117,7 +108,6 @@ body {
   list-style: none;
   flex-direction: column;
   
-
 
 }
 
@@ -140,83 +130,93 @@ body {
 
     background-color: var(--main-text-primarna-boja);
     color: var(--footer-text-boja);
-    transition: 0.276s ease;
+    transition: 0.336s ease;
 
 
 }
+
+#container-za-kartice { 
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15.625rem, 1fr));
+    gap: 1.25rem;
+    padding: 1.25rem;
+    padding-top: 0;
+    padding-bottom: 2.5rem;
+
+}
+
+.kartica {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    background: white;
+    transition: transform 0.3s ease;
+}
+
+.kartica:hover { 
+    transform: translateY(-6px);
+
+}
+
+.kartica img {
+    width: 100%;
+    height: 9.375rem;
+    object-fit: cover;
+}
+
+.kartica h3, .kartica p, .kartica a {
+    padding: 0.625rem;
+}
+
+.kartica a {
+
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+
+}
+
+.opis-kartice  {
+
+    padding: 1.25rem;       
+    display: flex;       
+    flex-direction: column; 
+    gap: 0.75rem;
+
+}
+
+.opis-kartice h3 {
+    margin: 0;          
+    font-size: 1.25rem;
+    color: #2c3e50;      
+}
+
+.opis-kartice p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #555;        
+    line-height: 1.5;   
+    flex-grow: 1;        
+}
+
 
 #kako-do-nas-iframe {
 
-            width:100%; 
-            height:25rem; 
-            border: none;
-            
-            
-}
-
-
-.atrakcije-slider {
-    display: flex;
-    flex-direction: column; 
-    align-items: center;
-    gap: 1rem;
-    padding: 1.5rem;
-    background-color: white;
-    border-radius: 0.625rem;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-.atrakcija-display {
-    width: 100%;
-    max-width: 31.25rem; 
-    text-align: center;
-}
-
-.atrakcija-display img {
-    width: 100%;
-    height: 15.625rem; 
-    object-fit: cover;
-    border-radius: 0.5rem;
-}
-
-
-.slider-controls {
-    display: flex;
-    gap: 0.5rem; 
-    margin-top: 0.5rem;
-}
-
-
-.slider-taster-kvadrat {
-    background-color: var(--header-pozadina-boja);
-    color: white;
+    width:100%; 
+    height:25rem; 
     border: none;
-    width: 2.5rem; 
-    height: 2.5rem; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    border-radius: 4px; 
+            
+            
 }
 
-.slider-btn-kvadrat:hover {
-    background-color: var(--main-text-sekundarna-boja);
-    transform: translateY(-2px); 
+.mapa-naslov {
+  
+    margin-top: 0;
+
 }
 
-.atrakcija-display { /* Ovo je klasa koja se uz pomoc JavaScripta dodaje na element(tj na karticu) kako bi se postigao efekt animacije */
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 0.4s ease, transform 0.4s ease; 
-}
-
-.kartica-skrivena {
-    opacity: 0;
-    transform: translateY(10px); 
-}
  
 
 #nav-na-indexu, #main-na-indexu, #aside-na-indexu { 
@@ -229,7 +229,7 @@ body {
 }
 
 
-hr {
+#nav-na-indexu hr, #main-na-indexu hr, #aside-na-indexu hr {
     background-color: var(--main-text-primarna-boja);
     border: none;
     height: 2px; 
@@ -239,6 +239,35 @@ hr {
 #aside-na-indexu iframe { 
     max-width: 100%;
     aspect-ratio: 16 / 9;
+}
+
+#vremenska-prognoza-container { 
+
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    background-color: aqua;
+    
+
+
+
+}
+
+#vremenska-prognoza-container p { 
+
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+    margin-top: 1rem;
+
+}
+
+#vremenska-prognoza-container img { 
+
+    height: 4rem;
+    margin: 0.25rem;
+
 }
 
 #sat-container {
@@ -269,3 +298,52 @@ hr {
     height: 3.125rem; 
     margin: 0 0.313rem; 
 }
+
+
+    
+@media screen and (min-width: 600px) and (max-width: 900px) {
+    #glavni-container {
+        grid-template-columns: 12.5rem 1fr; 
+    }
+
+    #nav-na-indexu {
+       
+        grid-row: span 2;
+    }
+
+    #main-na-indexu {
+       
+        grid-column: 2;
+    }
+
+    #aside-na-indexu {  
+        grid-column: 2;
+        position: static; 
+        max-height: none;
+    }
+
+}
+
+    
+@media screen and (max-width: 600px) {
+    #glavni-container {
+        grid-template-columns: 1fr; 
+    }
+
+   #nav-na-indexu, 
+    #main-na-indexu, 
+    #aside-na-indexu {
+        
+        grid-column: 1;
+        
+        position: static; 
+        max-height: none;
+        width: 94%;
+        
+        margin-bottom: 1rem;
+    }
+
+
+
+}
+
