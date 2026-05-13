@@ -91,3 +91,26 @@ textarea.error-border {
     border-radius: 8px;
     margin-top: 20px;
 }
+
+/* Media Querries ( AI je pomogao ) */
+
+/* Mobitel (<600px) */
+@media screen and (max-width: 599px) {
+    .container {
+        /* promjene samo za mobitel */
+    }
+}
+
+/* Tablet (600px - 900px) */
+@media screen and (min-width: 600px) and (max-width: 900px) {
+    .container {
+        /* promjene samo za tablet */
+    }
+}
+
+/* Desktop (>900px) */
+@media screen and (min-width: 901px) {
+    .container {
+        /* promjene samo za desktop */
+    }
+}
