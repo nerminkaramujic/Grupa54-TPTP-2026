@@ -11,12 +11,17 @@
     --main-text-sekundarna-boja: #c24d2c; 
     --footer-text-boja: #f2f2f2; 
     --footer-pozadina-boja: #2a6db1; 
+    --main-iza-kartica-boja: white;
+    --naslov-u-karticama: #20272f;
+    --tekst-u-kartici: #414141;
+    --main-boja-kartice: white; 
+    --aside-prognoza-border: #2a6db1;
 
     /* font stranice */
 
     --glavni-font: 'Verdana', sans-serif;
 
-    --standardni-razmak: 0.938rem;        /* sve jedinice prebacene iz piksela u rem(1 rem ~ 16px) */
+    --standardni-razmak: 0.938rem; /* sve jedinice prebacene iz piksela u rem(1 rem ~ 16px) */
     --standardna-velicina-fonta: 0.875rem; 
 }
 
@@ -54,7 +59,7 @@ body {
 #lista-u-headeru button a { 
 
     text-decoration: none;
-    color: #f2f2f2;
+    color: var(--header-text-boja);
 
 }
 
@@ -76,9 +81,24 @@ body {
 }
 
 #lista-u-headeru button:hover {
-    background-color: #f2f2f2;
+    background-color: var(--header-text-boja);
     color: var(--header-pozadina-boja);
     transition: 0.336s ease;
+}
+
+.tri-crtice-header {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    margin-left: auto; 
+}
+
+.tri-crtice-header span {
+    width: 30px;
+    height: 3px;
+    background-color: var(--header-text-boja);
+    transition: 0.3s;
 }
 
 #glavni-container { 
@@ -87,7 +107,7 @@ body {
     gap: 1.25rem; 
     padding: 1.25rem;
     min-height: 80vh;
-    background-color: white;
+    background-color: var(--main-iza-kartica-boja);
     color: var(--main-text-primarna-boja);
 }
 
@@ -150,7 +170,7 @@ body {
     border: 1px solid #ddd;
     border-radius: 10px;
     overflow: hidden;
-    background: white;
+    background: var(--main-boja-kartice);
     transition: transform 0.3s ease;
 }
 
@@ -190,13 +210,13 @@ body {
 .opis-kartice h3 {
     margin: 0;          
     font-size: 1.25rem;
-    color: #2c3e50;      
+    color: var(--naslov-u-karticama);      /**/
 }
 
 .opis-kartice p {
     margin: 0;
     font-size: 0.95rem;
-    color: #555;        
+    color: var(--tekst-u-kartici);        
     line-height: 1.5;   
     flex-grow: 1;        
 }
@@ -248,10 +268,19 @@ body {
     flex-direction: column;
     align-items: center;
     max-width: 100%;
-    background-color: aqua;
+    background-color: var(--header-pozadina-boja);
+    color: var(--header-text-boja);
+    border-style: solid;
+    border-width: 2px;
+    border-color: var(--aside-prognoza-border);
+    min-height: 150px;
     
 
+}
 
+#vrijeme-emotikon {
+
+    font-size: 2rem;
 
 }
 
@@ -273,11 +302,15 @@ body {
 #sat-container {
     display: flex;
     flex-direction: column;
-    font-size: 1.75rem; 
+    font-size: 0.875rem; 
     font-weight: bold;
     justify-content: center;
     align-items: center;
     margin-top: auto; 
+    position:absolute;
+    bottom: 20px;      
+    right: 20px;
+    padding: 0.5rem;
 }
 
 #footer-container {
@@ -298,6 +331,24 @@ body {
     height: 3.125rem; 
     margin: 0 0.313rem; 
 }
+
+body.tamna-tema {
+    --header-pozadina-boja: #1a1a1a; 
+    --header-text-boja: #e0e0e0;
+    --main-pozadina-boja: #121212; 
+    --main-text-primarna-boja: #50a7c6; 
+    --main-sekeundarna-pozadina-boja: #1e1e1e; 
+    --main-text-sekundarna-boja: #50a7c6;
+    --footer-pozadina-boja: #000000;
+    --footer-text-boja: #e0e0e0;
+    --main-iza-kartica-boja: #121212;
+    --main-boja-kartice: #1e1e1e;
+    --naslov-u-karticama: #50a7c6;
+    --tekst-u-kartici: #b0b0b0;
+    --kartica-border: #2d2c2c;
+    --aside-prognoza-border: #e0e0e0;
+}
+
 
 
     
@@ -324,13 +375,14 @@ body {
 
 }
 
+
     
 @media screen and (max-width: 600px) {
     #glavni-container {
         grid-template-columns: 1fr; 
     }
 
-   #nav-na-indexu, 
+    #nav-na-indexu, 
     #main-na-indexu, 
     #aside-na-indexu {
         
@@ -347,3 +399,57 @@ body {
 
 }
 
+@keyframes dropMeniAnimacija {  /* Animacija napravljena uz pomoc Gemini-a */
+    0% {
+        opacity: 0;
+        transform: translateY(-20px); 
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); 
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .tri-crtice-header {
+        display: flex; 
+    }
+
+    #lista-u-headeru {
+        border-top-style: solid;
+        border-top-color: var(--header-text-boja);
+        border-top-width: 1px;
+        padding-top: 0;
+        margin-top: 0;
+        display: none; 
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--header-pozadina-boja);
+        flex-direction: column;
+        gap: 0;
+        padding: 0;
+        z-index: 100000;
+    }
+
+    
+    #lista-u-headeru.show {
+        display: flex;
+
+        animation: dropMeniAnimacija 0.28s ease-out forwards;
+    }
+
+    #lista-u-headeru li button {
+        border-bottom-style: solid;
+        border-bottom-color: var(--header-pozadina-boja);
+        border-bottom-width: 2px;
+        width: 100%;
+        text-align: left;
+        border-radius: 0;
+        padding: 1.2rem;
+        
+    }
+
+
+}

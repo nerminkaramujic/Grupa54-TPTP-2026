@@ -3,9 +3,9 @@ function osvjeziSat() {
     const vrijemeSada = new Date();
     const sati = vrijemeSada.getHours().toString().padStart(2, 0);
     const minute = vrijemeSada.getMinutes().toString().padStart(2, 0);
-    const sekunde = vrijemeSada.getSeconds().toString().padStart(2, 0);
+    
 
-    const vrijemeTekst = `${sati}:${minute}:${sekunde}`;
+    const vrijemeTekst = `${sati}:${minute}`;
 
     document.getElementById("sat-container").textContent = vrijemeTekst;
 
@@ -19,56 +19,57 @@ const podaciAtrakcija = [
         opis: "Sojeničko neolitsko naselje koje svjedoči o bogatoj historiji Tuzle.",
         slika: "images/arheoloski_park.jpg",
         kategorija: "historija",
-        link: "detalji.html"
+        link: "https://panonika.ba/arheoloski-park-neolitsko-sojenicko-naselje/"
     },
     {
         naslov: "Slani Slapovi",
         opis: "Jedinstvena inhalacija slanom vodom na otvorenom.",
         slika: "images/slani_slapovi.jpg",
         kategorija: "voda",
-        link: "detalji.html"
+        link: "https://panonika.ba/slani-slapovi/"
     },
     {
         naslov: "Muzej Geološka postavka",
         opis:   "Pogledajte fosile, minerale i kristale soli stare milionima godina.",
         kategorija: "historija",
         slika: "images/muzej.jpg",
-        link: "muzej.link"
+        link: "https://panonika.ba/muzej-geoloska-postavka-pannonica/"
 
     },
     {
         naslov: "Restoran Panonski Lovac",
         opis: "Gastronomski užitak u prelijepom ambijentu sa pogledom na jezera.",
         slika: "images/restoran.jpg",
-        kategorija: "zabava"
+        kategorija: "zabava",
+        link: "https://panonika.ba/gastronomija/restoran-panonski-lovac/"
     },
     {
         naslov: "Prvo panonsko jezero",
         opis: "Najveće jezero u kompleksu, poznato po kristalno čistoj slanoj vodi i ljekovitim svojstvima.",
         slika: "images/jezero1.jpg",
         kategorija: "voda",
-        link: "detalji.html"
+        link: "https://panonika.ba/prvo-jezero/"
     },
     {
         naslov: "Drugo panonsko jezero",
         opis: "Idealno mjesto za plivanje i relaksaciju, okruženo uređenim plažama i ugostiteljskim objektima.",
         slika: "images/jezero2.jpg",
         kategorija: "voda",
-        link: "detalji.html"
+        link: "https://panonika.ba/drugo-jezero/"
     },
     {
         naslov: "Treće panonsko jezero",
         opis: "Najmodernije jezero u sklopu kompleksa, opremljeno vodenim toboganima.",
         slika: "images/jezero3.jpg",
         kategorija: "voda",
-        link: "detalji.html"
+        link: "https://panonika.ba/trece-jezero/"
     },
     {
         naslov: "Dječiji zabavni park",
         opis: "Igralište prilagođeno djeci svih uzrasta za nezaboravnu zabavu.",
         slika: "images/djeciji_park.jpg",
         kategorija: "zabava",
-        link: "detalji.html"
+        link: "https://panonika.ba/djeciji-zabavni-park-slana-banja/"
     }
 ];
 
@@ -83,7 +84,7 @@ function prikaziKartice(podaci) {
     podaci.forEach(atrakcija => {
         const karticaHTML = `
             <div class="kartica" data-kategorija="${atrakcija.kategorija}">
-                <a href="${atrakcija.link}" class="btn-vise">
+                <a href="${atrakcija.link}" target="_blank" class="btn-vise">
                 <img src="${atrakcija.slika}" alt="${atrakcija.naslov}"></a>
                 <div class="opis-kartice">
                     <h3>${atrakcija.naslov}</h3>
@@ -126,8 +127,109 @@ function prikaziMapu() {
 
 }
 
+const APIKEY = "9e6f6576f668c2fa48ce85a7d675fa80";
+        URL = "https://api.openweathermap.org/data/2.5/weather?units=metric";
+
+
+async function osvjeziVrijeme() {
+
+    const aside_temp = document.getElementById("aside-temperatura");
+    const emotikon = document.getElementById("vrijeme-emotikon");
+
+    try {
+
+    const res = await fetch(`${URL}&q=Tuzla&appid=${APIKEY}`);
+    let informacije = await res.json();
+
+
+    aside_temp.innerText = "Tuzla: " + Math.round(informacije.main.temp) + "°C";
+
+    const stanje = informacije.weather[0].main;
+
+    const dan = informacije.weather[0].icon.includes('d');
+
+
+    switch (stanje) {
+        case 'Clear':
+            if(dan) 
+                {console.log("Dan");
+                emotikon.innerText = "☀️";} 
+                else 
+                    {console.log("Noc");
+                    emotikon.innerText = "🌙";
+                    }
+
+            
+            break;
+        case 'Clouds':
+            emotikon.innerText = "☁️";
+            break;
+        case 'Rain':
+        case 'Drizzle':
+            emotikon.innerText = "🌧️";
+            break;
+        case 'Thunderstorm':
+            emotikon.innerText = "⛈️";
+            break;
+        case 'Snow':
+            emotikon.innerText = "❄️";
+            break;
+        case 'Mist':
+        case 'Fog':
+        case 'Haze':
+            emotikon.innerText = "🌫️";
+            break;
+        default:
+            console.log("proso kroz case default");
+}
+
+
+    console.log("Trenutna temperatura u Tuzli: " + informacije.main.temp + "°C" + informacije.weather[0].main);
+    console.log(informacije); } catch (error) {
+
+        console.error("greška kod apija nije kako treba nesto" );
+        
+        aside_temp.innerText = "Tuzla: -- °C";
+        emotikon.innerText = "☁️"; 
+    }
+
+}
+
+osvjeziVrijeme()
+const tamnaTema = document.getElementById('tamna-tema-button');
+
+tamnaTema.addEventListener('click', () => {
+    document.body.classList.toggle('tamna-tema');
+
+    
+    if (document.body.classList.contains('tamna-tema')) {
+        localStorage.setItem('tema', 'tamna');
+    } else {
+        localStorage.setItem('tema', 'svijetla');
+    }
+
+    if (document.body.classList.contains('tamna-tema')) {
+        tamnaTema.innerText = "☀️"; //iz nekog razloga ne radi unicode
+    } else {
+        tamnaTema.innerText = "🌙"; 
+    }
+
+});
+
+const btn = document.getElementById("drop-meni");
+const meni = document.getElementById("lista-u-headeru");
+
+btn.addEventListener("click", () => {
+    meni.classList.toggle("show");
+});
+
+
 
 prikaziKartice(podaciAtrakcija);
+
+if (localStorage.getItem('tema') === 'tamna') {
+    document.body.classList.add('tamna-tema');
+}
 
 const buttonZaSve = document.getElementById("sve-button");
 const buttonZaZabavu = document.getElementById("zabava-button");
