@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panonika Tuzla</title>
 
-    <link rel="stylesheet" href="css/tptpstil.css">
+    <link rel="stylesheet" href="css/tptpstil_index.css">
 
 
 
@@ -15,18 +15,156 @@
 
 <body>
   
-    <header>
+    <header id="header-container">
 
 
 
 
+        <div><a href="index.html"><img src="images/images.png" alt="Logo-Panonika"></a></div>
+        
+        <div id="drop-meni" class="tri-crtice-header">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        
+        <div> 
 
+            <ul id="lista-u-headeru">
+                <li>
+                    <a href="index.html">
+                    <button>POČETNA</button>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="onama.html">
+                    <button>O NAMA</button>
+                    </a>
+                </li>
+                <li>
+                    <a href="kontakt.html">
+                    <button>KONTAKT</button>
+                    </a>
+                </li>  
+                <li>
+                    <a target="_blank" href="https://github.com/nerminkaramujic/Grupa54-TPTP-2026">
+                    <button>GITHUB</button>
+                    </a>
+                </li>   
+                  <li>
+                    <button id="tamna-tema-button">&#x1F319;</button>
+                </li> 
+            </ul>
+        
+        </div>
 
     </header>
+        
+
+   <div id="glavni-container">
+
+
+        <nav id="nav-na-indexu">
+            <hr>
+            
+            <ul>
+
+                
+                <li><button id="sve-button">SVE</button></li>
+                <li><button id="zabava-button">ZABAVA</button></li>
+                <li><button id="jezera-button">JEZERA</button></li>
+                <li><button id="historija-button">HISTORIJA</button></li>
+                <li><button id="mapa-button">KAKO DO NAS</button></li>
+
+            </ul>
+        
+        
+        </nav>
+
+    <main id="main-na-indexu">
+        <hr>
+
+        <section id="container-za-kartice">
+        </section>
+
+        <section id="container-za-kako-do-nas">
+        </section>
+
+
+
+    </main>
+
+    
+    
+    
+    
+    
+    
+    
+    <aside id="aside-na-indexu">
+        <hr> 
+        <div>
+            <iframe src="https://www.youtube-nocookie.com/embed/QECsd-wqip4" frameborder="0"></iframe>
+            <div><br>Ovdje možete pogledati kako izgleda Panonika!</div><br>
+        </div>
+
+        <div id="vremenska-prognoza-container">
+
+            <p id="aside-temperatura"></p>
+
+            <span id="vrijeme-emotikon"></span>
+
+            <div id="sat-container">00:00</div>
+        </div>
+
+
+
+        
+        
+    </aside>
 
 
 
 
-<script src="js/tptpskripte.js"></script>
+    </div> <!-- zatvaranje diva glavni-container -->
+
+
+
+    <footer id="footer-container">
+
+        <div>
+            <ul id="lista-u-footeru-autori">
+
+                <li>Nejra Smajlović</li>
+                <li>Nešad Bašić</li>
+                <li>Nermin Karamujić</li>
+
+            </ul>
+
+        </div>
+
+        <div>
+
+            2026.god.
+
+        </div>
+
+        <div>
+            <ul id="lista-u-footeru-slike">
+
+                <a href=""><img src="images/fbimg.png" alt="facebook_logo"></a>
+                <a href=""><img src="images/Instagram-Logo.png" alt="instagram_logo"></a>
+                <a href=""><img src="images/twitterimg.png" alt="twitter_logo"></a>
+            
+            </ul>   
+
+        </div>
+
+
+
+    </footer>
+
+<script src="js/tptpskripte_index.js"></script>
 </body>
 </html>
