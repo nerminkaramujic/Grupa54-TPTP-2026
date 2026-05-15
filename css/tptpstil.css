@@ -324,6 +324,17 @@ main hr, aside hr, nav hr{
     border-radius: 8px; 
 }
 
+/* AI asistencija: Osiguravanje da Image Map bude na vrhu i da se kursor ispravno prikazuje */
+.mapa-kontejner {
+    position: relative;
+    z-index: 5;
+}
+
+
+map area {
+    cursor: pointer !important;
+}
+
 /* AI asistencija: Postavljanje flex-wrap i flex-direction pravila za mobilne uredjaje*/
 @media screen and (max-width: 768px) {
     .fleks-kontejner {
