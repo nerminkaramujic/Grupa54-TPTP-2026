@@ -180,7 +180,7 @@ main hr, aside hr, nav hr{
   transform: scale(1.1);
 }
 
-/* Ovo sakriva elemente na početku */
+/* AI koristen za precizno definisanje transformacija i tranzicija kod reveal animacija */
 .reveal {
   opacity: 0;
   transform: translateX(-100px); 
@@ -256,15 +256,21 @@ main hr, aside hr, nav hr{
 
 .uvodno-dugme:hover {
     background-color: var(--main-text-sekundarna-boja); /* Promjena u narandžastu na hover */
-    transform: scale(1.05); /* Mala animacija na hover */ 
+    transform: scale(1.05);  
 }
 
+#mapa-i-lista {
+    margin-top: 50px;
+    padding-top: 20px;
+}
 
+/* AI koristen za rjesavanje preklapanja headera i naslova pomocu scroll-margin-top */
 .tekst-sekcija {
     padding: var(--standardni-razmak);
     max-width: 1100px;
     margin: 0 auto;
     font-family: var(--glavni-font);
+    scroll-margin-top: 110px; /* Ovo 'gura' naslov ispod headera pri kliku na dugme (koristen AI) */
 }
 
 .tekst-sekcija h2 {
@@ -274,6 +280,7 @@ main hr, aside hr, nav hr{
     padding-bottom: 10px;
 }
 
+/* AI asistencija: Podešavanje gap i flex-wrap atributa za stabilan raspored kolona */
 .fleks-kontejner {
     display: flex;
     align-items: center;
@@ -283,7 +290,7 @@ main hr, aside hr, nav hr{
 }
 
 .tekst-kolona {
-    flex: 2; /* Tekst zauzima više prostora */
+    flex: 2;
     min-width: 300px;
     line-height: 1.6;
     font-size: var(--standardna-velicina-fonta);
@@ -291,10 +298,11 @@ main hr, aside hr, nav hr{
 }
 
 .slika-kolona {
-    flex: 1; /* Slika zauzima manje prostora */
+    flex: 1;
     min-width: 280px;
 }
 
+/* AI asistencija: Definisanje atributa za sjenu (box-shadow) i zaobljenje ivica radi bolje estetike */
 .responzivna-slika {
     width: 100%;
     height: auto;
@@ -303,24 +311,45 @@ main hr, aside hr, nav hr{
     transition: transform 0.3s ease;
 }
 
+/* Povećavamo širinu kolone sa slikom za ovu specifičnu sekciju */
+#mapa-i-lista .slika-kolona {
+    flex: 1.5;
+}
+
+
+#mapa-i-lista .responzivna-slika {
+    width: 100%;
+    max-width: 800px; 
+    height: auto;
+    border-radius: 8px; 
+}
+
+/* AI asistencija: Osiguravanje da Image Map bude na vrhu i da se kursor ispravno prikazuje */
+.mapa-kontejner {
+    position: relative;
+    z-index: 5;
+}
+
+
+map area {
+    cursor: pointer !important;
+}
+
+/* AI asistencija: Postavljanje flex-wrap i flex-direction pravila za mobilne uredjaje*/
 @media screen and (max-width: 768px) {
-    /* Na mobitelu centriramo sadržaj radi bolje čitljivosti */
     .fleks-kontejner {
         flex-direction: column; 
         text-align: center;
-        gap: 20px; /* Možeš smanjiti razmak na manjim ekranima */
+        gap: 20px; 
     }
 
-    /* Kolone sada zauzimaju punu širinu */
     .tekst-kolona, .slika-kolona {
-        flex: none; /* Poništavamo ono flex: 1 i 2 */
+        flex: none; 
         width: 100%;
         min-width: 100%;
     }
 
-    /* Prilagođavamo animacije za mobitel */
     .reveal, .reveal.desno {
-        /* Na mobitelu je klizanje sa strana čudno, pa sve klizi odozdo */
         transform: translateY(30px);
         opacity: 0;
     }
