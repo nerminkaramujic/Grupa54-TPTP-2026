@@ -13,11 +13,13 @@
             <h2>KONTAKTIRAJTE NAS</h2>
 
             <section class="input-group">
-                <input type="text" id="name" placeholder="Ime" autofocus>
+                <label for="name" class="visually-hidden">Ime</label>         <!-- Visually hidden je predlozio AI --> 
+                <input type="text" id="name" placeholder="Ime" autofocus>     <!-- da se napravi jer bi bilo ljepse -->
                 <span class="error-msg"></span>
             </section>
 
             <section class="input-group">
+                <label for="surname" class="visually-hidden">Prezime</label>
                 <input type="text" id="surname" placeholder="Prezime">
                 <span class="error-msg"></span>
             </section>
@@ -33,16 +35,19 @@
             </section>
 
             <section class="input-group">
+                <label for="phone" class="visually-hidden">Broj telefona</label>
                 <input type="text" id="phone" placeholder="Broj telefona">
                 <span class="error-msg"></span>
             </section>
 
             <section class="input-group">
+                <label for="email" class="visually-hidden">Email</label>
                 <input type="email" id="email" placeholder="Email">
                 <span class="error-msg"></span>
             </section>
 
             <section class="input-group">
+                <label for="message" class="visually-hidden">Poruka</label>
                 <textarea id="message" placeholder="Poruka" rows="4"></textarea>
                 <span class="error-msg"></span>
             </section>
