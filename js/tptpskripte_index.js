@@ -27,7 +27,7 @@ const podaciAtrakcija = [
     naslov: "Muzej Geološka postavka",
     opis: "Pogledajte fosile, minerale i kristale soli stare milionima godina.",
     kategorija: "historija",
-    slika: "images/muzej.jpg",
+    slika: "images/muzej1.jpg",
     link: "sadrzaj.html#proslost",
   },
   {
@@ -80,7 +80,7 @@ function prikaziKartice(podaci) {
   podaci.forEach((atrakcija) => {
     const karticaHTML = `
             <div class="kartica" data-kategorija="${atrakcija.kategorija}">
-                <a href="${atrakcija.link}" target="_blank" class="btn-vise">
+                <a href="${atrakcija.link}" class="btn-vise">
                 <img src="${atrakcija.slika}" alt="${atrakcija.naslov}"></a>
                 <div class="opis-kartice">
                     <h3>${atrakcija.naslov}</h3>
