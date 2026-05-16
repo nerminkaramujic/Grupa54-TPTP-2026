@@ -14,56 +14,56 @@ const podaciAtrakcija = [
     opis: "Sojeničko neolitsko naselje koje svjedoči o bogatoj historiji Tuzle.",
     slika: "images/arheoloski_park.jpg",
     kategorija: "historija",
-    link: "https://panonika.ba/arheoloski-park-neolitsko-sojenicko-naselje/",
+    link: "sadrzaj.html#proslost",
   },
   {
     naslov: "Slani Slapovi",
     opis: "Jedinstvena inhalacija slanom vodom na otvorenom.",
     slika: "images/slani_slapovi.jpg",
     kategorija: "voda",
-    link: "https://panonika.ba/slani-slapovi/",
+    link: "sadrzaj.html#slani-slapovi",
   },
   {
     naslov: "Muzej Geološka postavka",
     opis: "Pogledajte fosile, minerale i kristale soli stare milionima godina.",
     kategorija: "historija",
     slika: "images/muzej.jpg",
-    link: "https://panonika.ba/muzej-geoloska-postavka-pannonica/",
+    link: "sadrzaj.html#proslost",
   },
   {
     naslov: "Restoran Panonski Lovac",
     opis: "Gastronomski užitak u prelijepom ambijentu sa pogledom na jezera.",
     slika: "images/restoran.jpg",
     kategorija: "zabava",
-    link: "https://panonika.ba/gastronomija/restoran-panonski-lovac/",
+    link: "sadrzaj.html#rekreacija",
   },
   {
     naslov: "Prvo panonsko jezero",
     opis: "Najveće jezero u kompleksu, poznato po kristalno čistoj slanoj vodi i ljekovitim svojstvima.",
     slika: "images/jezero1.jpg",
     kategorija: "voda",
-    link: "https://panonika.ba/prvo-jezero/",
+    link: "sadrzaj.html#jezera",
   },
   {
     naslov: "Drugo panonsko jezero",
     opis: "Idealno mjesto za plivanje i relaksaciju, okruženo uređenim plažama i ugostiteljskim objektima.",
     slika: "images/jezero2.jpg",
     kategorija: "voda",
-    link: "https://panonika.ba/drugo-jezero/",
+    link: "sadrzaj.html#jezera",
   },
   {
     naslov: "Treće panonsko jezero",
     opis: "Najmodernije jezero u sklopu kompleksa, opremljeno vodenim toboganima.",
     slika: "images/jezero3.jpg",
     kategorija: "voda",
-    link: "https://panonika.ba/trece-jezero/",
+    link: "sadrzaj.html#jezera",
   },
   {
     naslov: "Dječiji zabavni park",
     opis: "Igralište prilagođeno djeci svih uzrasta za nezaboravnu zabavu.",
     slika: "images/djeciji_park.jpg",
     kategorija: "zabava",
-    link: "https://panonika.ba/djeciji-zabavni-park-slana-banja/",
+    link: "sadrzaj.html#dodatno",
   },
 ];
 
@@ -191,33 +191,33 @@ tamnaTema.addEventListener("click", () => {
 
   if (document.body.classList.contains("tamna-tema")) {
     localStorage.setItem("tema", "tamna");
+    document.documentElement.classList.remove("svijetla-tema");
+    tamnaTema.innerText = "☀️";
   } else {
     localStorage.setItem("tema", "svijetla");
-  }
-
-  if (document.body.classList.contains("tamna-tema")) {
-    tamnaTema.innerText = "☀️"; //iz nekog razloga ne radi unicode
-  } else {
+    document.documentElement.classList.add("svijetla-tema");
     tamnaTema.innerText = "🌙";
   }
 });
 
-const sacuvanaTema = localStorage.getItem("tema"); //za media prefers color scheme
-
+const sacuvanaTema = localStorage.getItem("tema");
 const sistem = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
 if (sacuvanaTema === "tamna" || (!sacuvanaTema && sistem)) {
   document.body.classList.add("tamna-tema");
   tamnaTema.innerText = "☀️";
 } else {
+  if (sacuvanaTema === "svijetla") {
+    document.documentElement.classList.add("svijetla-tema");
+  }
   tamnaTema.innerText = "🌙";
 }
-
 const btn = document.getElementById("drop-meni");
 const meni = document.getElementById("lista-u-headeru");
 
 btn.addEventListener("click", () => {
   meni.classList.toggle("show");
+  btn.classList.toggle("pretvoriUX");
 });
 
 prikaziKartice(podaciAtrakcija);
