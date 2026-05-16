@@ -116,3 +116,13 @@ textarea.error-border {
         /* promjene samo za desktop */
     }
 }
+
+/* AI je pomogao da se napravi ovaj dio koda da se sakriju labele */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
