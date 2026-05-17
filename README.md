@@ -1,22 +1,36 @@
 # Grupa54-TPTP-2026
 
-<b>Završni projekat iz TPTP-a.</b>
+## Završni projekat iz TPTP-a
 
-<b>Tema:</b> Turistička atrakcija - Panonika Tuzla
+**Tema:** Turistička atrakcija - Panonika Tuzla
 
-<b>Članovi:</b>
+---
 
-Nejra Smajlović - smjlvc<br>
-Nermin Karamujić - nerminkaramujic<br>
-Nešad Bašić - NB-bit632
+## O projektu
 
-<b>Opis:</b>
-U ovom projektu za cilj smo imali napraviti stranicu Panonike Tuzla.<br>
-Podjela posla je izvršena na sljedeći način: <br>
+Tema ovog projekta je izrada moderne i responzivne web stranice turističkog kompleksa "Panonika Tuzla" primjenom HTML, CSS i JavaScript tehnologija.
 
-1. Nermin Kramujić - Glavna stranica(index.html), <br>
-2. Nejra Smajlović - Detaljna stranica(sadrzaj.html) i <br>
-3. Nešad Bašić - Stranica sa formom(kontakt.html) <br>
+Naš web sajt nudi interaktivni pregled sadržaja i lokacija, implementaciju API servisa za prikaz trenutne temperature, kao i napredne opcije prilagođavanja izgleda poput tamne teme.
 
-<br>Tokom izrade ovog projekta korištena je umjetna inteligencija (Gemini, ChatGPT). <br>
+### Članovi Grupe
+
+| Ime i prezime        | GitHub           | Zaduženje                           |
+| :------------------- | :--------------- | :---------------------------------- |
+| **Nermin Karamujić** | @nerminkaramujic | Glavna stranica (`index.html`)      |
+| **Nejra Smajlović**  | @smjlvc          | Detaljna stranica (`sadrzaj.html`)  |
+| **Nešad Bašić**      | @NB-bit632       | Stranica sa formom (`kontakt.html`) |
+
+---
+
+## Tehnologije
+
+- **HTML5**
+- **CSS3** (bez frameworka)
+- **JavaScript** (bez biblioteka)
+
+---
+
+## AI Alati korišteni u projektu
+
+Tokom izrade ovog projekta korištena je umjetna inteligencija (Gemini, ChatGPT).  
 Svi dijelovi koda u čijoj je izradi pomogao AI su označeni odgovarajućim komentarima unutar izvornog koda.
