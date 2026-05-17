@@ -1,17 +1,16 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="bs">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Panonika Tuzla</title>
-    <link rel="stylesheet" href="css_kontakt.css">
-</head>
-<body>
-
-<header id="header-container">
+    <link rel="stylesheet" href="css/tptpstil.css" />
+  </head>
+  <body id="tijelo-kontakt">
+    <header id="header-container">
       <div>
         <a href="index.html"
-          ><img src="images/images3.png" alt="Logo-Panonika"
+          ><img src="images/images1.png" alt="Logo-Panonika"
         /></a>
       </div>
       <div id="drop-meni" class="tri-crtice-header">
@@ -28,7 +27,7 @@
           </li>
 
           <li>
-            <a href="onama.html">
+            <a href="sadrzaj.html">
               <button>O NAMA</button>
             </a>
           </li>
@@ -52,87 +51,86 @@
       </div>
     </header>
 
-
-
     <main class="container">
-        <form id="contactForm" novalidate>
-            <h2>KONTAKTIRAJTE NAS</h2>
+      <form id="contactForm" novalidate>
+        <h2>KONTAKTIRAJTE NAS</h2>
 
-            <section class="input-group">
-                <label for="name" class="visually-hidden">Ime</label>         <!-- Visually hidden je predlozio AI --> 
-                <input type="text" id="name" placeholder="Ime" autofocus>     <!-- da se napravi jer bi bilo ljepse -->
-                <span class="error-msg"></span>
-            </section>
+        <section class="input-group">
+          <label for="name" class="visually-hidden">Ime</label>
+          <!-- Visually hidden je predlozio AI -->
+          <input type="text" id="name" placeholder="Ime" autofocus />
+          <!-- da se napravi jer bi bilo ljepse -->
+          <span class="error-msg"></span>
+        </section>
 
-            <section class="input-group">
-                <label for="surname" class="visually-hidden">Prezime</label>
-                <input type="text" id="surname" placeholder="Prezime">
-                <span class="error-msg"></span>
-            </section>
+        <section class="input-group">
+          <label for="surname" class="visually-hidden">Prezime</label>
+          <input type="text" id="surname" placeholder="Prezime" />
+          <span class="error-msg"></span>
+        </section>
 
-            <section class="input-group">
-                <select id="subject">
-                    <option value="">Izaberite opciju</option>                
-                    <option value="General">Generalni upit</option>           
-                    <option value="Support">Tehnička podrška</option>         
-                    <option value="Feedback">Povratne informacije</option>    
-                </select>
-                <span class="error-msg"></span>
-            </section>
+        <section class="input-group">
+          <select id="subject">
+            <option value="">Izaberite opciju</option>
+            <option value="General">Generalni upit</option>
+            <option value="Support">Tehnička podrška</option>
+            <option value="Feedback">Povratne informacije</option>
+          </select>
+          <span class="error-msg"></span>
+        </section>
 
-            <section class="input-group">
-                <label for="phone" class="visually-hidden">Broj telefona</label>
-                <input type="text" id="phone" placeholder="Broj telefona">
-                <span class="error-msg"></span>
-            </section>
+        <section class="input-group">
+          <label for="phone" class="visually-hidden">Broj telefona</label>
+          <input type="text" id="phone" placeholder="Broj telefona" />
+          <span class="error-msg"></span>
+        </section>
 
-            <section class="input-group">
-                <label for="email" class="visually-hidden">Email</label>
-                <input type="email" id="email" placeholder="Email">
-                <span class="error-msg"></span>
-            </section>
+        <section class="input-group">
+          <label for="email" class="visually-hidden">Email</label>
+          <input type="email" id="email" placeholder="Email" />
+          <span class="error-msg"></span>
+        </section>
 
-            <section class="input-group">
-                <label for="message" class="visually-hidden">Poruka</label>
-                <textarea id="message" placeholder="Poruka" rows="4"></textarea>
-                <span class="error-msg"></span>
-            </section>
+        <section class="input-group">
+          <label for="message" class="visually-hidden">Poruka</label>
+          <textarea id="message" placeholder="Poruka" rows="4"></textarea>
+          <span class="error-msg"></span>
+        </section>
 
-            <button type="submit" id="submitBtn">PODNESI</button>
-            <button type="button" id="resetBtn">RESET</button>
-        </form>
+        <button type="submit" id="submitBtn">PODNESI</button>
+        <button type="button" id="resetBtn">RESET</button>
+      </form>
 
-        <section id="successMessage" class="hidden"></section>
+      <section id="successMessage" class="hidden"></section>
     </main>
+  </body>
+  <footer id="footer-container">
+    <div>
+      <ul id="lista-u-footeru-autori">
+        <li>Nejra Smajlović - sadrzaj.html</li>
+        <li>Nešad Bašić - kontakt.html</li>
+        <li>Nermin Karamujić - index.html</li>
+      </ul>
+    </div>
 
-    <script src="js_kontakt.js"></script>
+    <div>Grupa 54 -TPTP Projekat - 2026.god.</div>
 
-</body>
-<footer id="footer-container">
-      <div>
-        <ul id="lista-u-footeru-autori">
-          <li>Nejra Smajlović - sadrzaj.html</li>
-          <li>Nešad Bašić - kontakt.html</li>
-          <li>Nermin Karamujić - index.html</li>
-        </ul>
-      </div>
+    <div>
+      <ul id="lista-u-footeru-slike">
+        <a
+          href="https://www.facebook.com/PanonikaTuzlaBiH/?locale=hr_HR"
+          target="_blank"
+          ><img src="images/fbimg.png" alt="facebook_logo"
+        /></a>
+        <a href="https://www.instagram.com/panonikatz/" target="_blank"
+          ><img src="images/Instagram-Logo.png" alt="instagram_logo"
+        /></a>
+        <a href="https://x.com/Panonska_Jezera" target="_blank"
+          ><img src="images/x_logo_avif.avif" alt="twitter_logo"
+        /></a>
+      </ul>
+    </div>
+  </footer>
 
-      <div>TPTP Projekat - 2026.god.</div>
-
-      <div>
-        <ul id="lista-u-footeru-slike">
-          <a
-            href="https://www.facebook.com/PanonikaTuzlaBiH/?locale=hr_HR"
-            target="_blank"
-            ><img src="images/fbimg.png" alt="facebook_logo"
-          /></a>
-          <a href="https://www.instagram.com/panonikatz/" target="_blank"
-            ><img src="images/Instagram-Logo.png" alt="instagram_logo"
-          /></a>
-          <a href="https://x.com/Panonska_Jezera" target="_blank"
-            ><img src="images/x_logo_avif.avif" alt="twitter_logo"
-          /></a>
-        </ul>
-      </div>
-    </footer>
+  <script src="js/tptpskripte.js"></script>
 </html>

@@ -1,11 +1,17 @@
+/* Ispod se nalazi Nerminov dio JavaScript koda. */
+
 function osvjeziSat() {
+  const satContainer = document.getElementById("sat-container");
+
+  if (!satContainer) return;
+
   const vrijemeSada = new Date();
   const sati = vrijemeSada.getHours().toString().padStart(2, 0);
   const minute = vrijemeSada.getMinutes().toString().padStart(2, 0);
 
   const vrijemeTekst = `${sati}:${minute}`;
 
-  document.getElementById("sat-container").textContent = vrijemeTekst;
+  satContainer.textContent = vrijemeTekst;
 }
 
 const podaciAtrakcija = [
@@ -73,6 +79,9 @@ function prikaziKartice(podaci) {
     "container-za-kako-do-nas",
   );
   const container = document.getElementById("container-za-kartice");
+
+  if (!container || !kako_do_nas_container) return;
+
   kako_do_nas_container.innerHTML = " ";
   container.innerHTML = " ";
   container.style.display = "grid";
@@ -80,7 +89,7 @@ function prikaziKartice(podaci) {
   podaci.forEach((atrakcija) => {
     const karticaHTML = `
             <div class="kartica" data-kategorija="${atrakcija.kategorija}">
-                <a href="${atrakcija.link}" class="btn-vise">
+                <a href="${atrakcija.link}"  class="btn-vise">
                 <img src="${atrakcija.slika}" alt="${atrakcija.naslov}"></a>
                 <div class="opis-kartice">
                     <h3>${atrakcija.naslov}</h3>
@@ -109,6 +118,8 @@ function prikaziMapu() {
   const container = document.getElementById("container-za-kako-do-nas");
   const container_za_kartice = document.getElementById("container-za-kartice");
 
+  if (!container || !container_za_kartice) return;
+
   container_za_kartice.style.display = "none";
   container_za_kartice.innerHTML = "";
   container.innerHTML = `
@@ -120,11 +131,13 @@ function prikaziMapu() {
 
 const APIKEY = "9e6f6576f668c2fa48ce85a7d675fa80";
 URL = "https://api.openweathermap.org/data/2.5/weather?units=metric";
-
+/* Ovaj dio koda sluzi za implementaciju vremenske prognoze preko API kljuca */
+/* Ovo funkcionise tako sto se iz vanjskog API servisa povlace odredjeni podaci */
 async function osvjeziVrijeme() {
   const aside_temp = document.getElementById("aside-temperatura");
   const emotikon = document.getElementById("vrijeme-emotikon");
 
+  if (!aside_temp || !emotikon) return;
   try {
     const res = await fetch(`${URL}&q=Tuzla&appid=${APIKEY}`);
     let informacije = await res.json();
@@ -185,7 +198,7 @@ async function osvjeziVrijeme() {
 
 osvjeziVrijeme();
 const tamnaTema = document.getElementById("tamna-tema-button");
-
+/* Ovaj dio koda sluzi za implementaciju tamne teme. Tj on dodaje klasu na tijelu prilikom klika na Button! */
 tamnaTema.addEventListener("click", () => {
   document.body.classList.toggle("tamna-tema");
 
@@ -200,7 +213,10 @@ tamnaTema.addEventListener("click", () => {
   }
 });
 
-const sacuvanaTema = localStorage.getItem("tema");
+const sacuvanaTema =
+  localStorage.getItem(
+    "tema",
+  ); /* Ovaj dio koda sluzi za primjenu prefers-color-scheme tj da ne bi doslo do problema zbog buttona u headeru ukoliko je tamna tema po defaultu ukljucena */
 const sistem = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
 if (sacuvanaTema === "tamna" || (!sacuvanaTema && sistem)) {
@@ -232,11 +248,166 @@ const buttonZaJezera = document.getElementById("jezera-button");
 const buttonZaHistoriju = document.getElementById("historija-button");
 const kakoDoNasButton = document.getElementById("mapa-button");
 
-buttonZaSve.addEventListener("click", () => filtriraj("sve"));
-buttonZaZabavu.addEventListener("click", () => filtriraj("zabava"));
-buttonZaJezera.addEventListener("click", () => filtriraj("voda"));
-buttonZaHistoriju.addEventListener("click", () => filtriraj("historija"));
-kakoDoNasButton.addEventListener("click", () => prikaziMapu());
+if (buttonZaSve) buttonZaSve.addEventListener("click", () => filtriraj("sve"));
+if (buttonZaZabavu)
+  buttonZaZabavu.addEventListener("click", () => filtriraj("zabava"));
+if (buttonZaJezera)
+  buttonZaJezera.addEventListener("click", () => filtriraj("voda"));
+if (buttonZaHistoriju)
+  buttonZaHistoriju.addEventListener("click", () => filtriraj("historija"));
+if (kakoDoNasButton)
+  kakoDoNasButton.addEventListener("click", () => prikaziMapu());
 
 osvjeziSat();
-setInterval(osvjeziSat, 1000);
+setInterval(osvjeziSat, 1000); /* "Osvjezavanje" sata svakih 1s*/
+
+/* Iznad se nalazi Nerminov dio JavaScript-a. To je dio koji se koristi na index-u.Takodjer se koristi na svim stranicama za header. */
+
+/* Ispod se nalazi Nejrin dio JavaScript koda. to je kod koji se koristi na stranici sadrzaj.html. */
+
+document.addEventListener("DOMContentLoaded", function () {
+  // AI asistencija: Generisanje sintakse za IntersectionObserver prema mojoj zamisli o animacijama
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+        }
+      });
+    },
+    { threshold: 0.1 },
+  );
+
+  document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+
+  const topBtn = document.getElementById("topBtn");
+
+  // AI koristen za pisanje logike dugmeta (prikaz nakon 400px skrola)
+  if (topBtn) {
+    // Provjera da li dugme uopšte postoji u HTML-u
+    window.onscroll = function () {
+      if (
+        document.body.scrollTop > 400 ||
+        document.documentElement.scrollTop > 400
+      ) {
+        topBtn.style.display = "block";
+      } else {
+        topBtn.style.display = "none";
+      }
+    };
+
+    // AI koristen za implementaciju 'smooth scroll' funkcije
+    topBtn.onclick = function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+  }
+});
+
+/* Iznad se nalazi Nejrin dio JavaScript koda. Nejrin dio koda mora ici prvi zato sto dolazi do problema u suprotnom. */
+
+/* Ispod se nalazi Nesadov dio koda. To je kod koji se koristi na stranici kontakt.html i on sluzi za validaciju unosa korisnika! */
+
+const form =
+  document.getElementById(
+    "contactForm",
+  ); /* Kod je većinom pomogao napisati AI */
+const successDiv = document.getElementById("successMessage");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  let isValid = true;
+
+  // 1. Ime
+  const name = document.getElementById("name");
+  if (name.value.trim().length < 2) {
+    showError(name, "Unesite ispravno ime.");
+    isValid = false;
+  } else {
+    clearError(name);
+  }
+
+  // 2. Prezime
+  const surname = document.getElementById("surname");
+  if (surname.value.trim().length < 2) {
+    showError(surname, "Unesite ispravno prezime.");
+    isValid = false;
+  } else {
+    clearError(surname);
+  }
+
+  // 3. Dropdown (Tema)
+  const subject = document.getElementById("subject");
+  if (subject.value === "") {
+    showError(subject, "Odaberite temu upita.");
+    isValid = false;
+  } else {
+    clearError(subject);
+  }
+
+  // 4. Telefon (Regex: cifre, razmaci, crtice)
+  const phone = document.getElementById("phone");
+  const phoneRegex = /^[0-9\s\-]+$/;
+  if (!phoneRegex.test(phone.value.trim())) {
+    showError(phone, "Dozvoljeni samo brojevi, razmaci i crtice.");
+    isValid = false;
+  } else {
+    clearError(phone);
+  }
+
+  // 5. Email (Regex validacija)
+  const email = document.getElementById("email");
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email.value.trim())) {
+    showError(email, "Unesite ispravnu email adresu.");
+    isValid = false;
+  } else {
+    clearError(email);
+  }
+
+  // 6. Poruka
+  const message = document.getElementById("message");
+  if (message.value.trim().length < 10) {
+    showError(message, "Poruka mora imati barem 10 znakova.");
+    isValid = false;
+  } else {
+    clearError(message);
+  }
+
+  // Ako je sve u redu
+  if (isValid) {
+    form.classList.add("hidden");
+    successDiv.classList.remove("hidden");
+    successDiv.innerHTML = `
+            <h3>Hvala, ${name.value}!</h3>
+            <p>Vaša poruka je uspješno poslana.</p>
+        `;
+  }
+});
+
+// Reset funkcija
+document.getElementById("resetBtn").addEventListener("click", () => {
+  form.reset();
+
+  const inputs = form.querySelectorAll("input, select, textarea");
+  inputs.forEach((input) => clearError(input));
+
+  successDiv.classList.add("hidden");
+  form.classList.remove("hidden");
+});
+
+function showError(input, message) {
+  const group = input.parentElement;
+  const errorSpan = group.querySelector(".error-msg");
+
+  input.classList.add("error-border");
+  errorSpan.innerText = message;
+}
+
+function clearError(input) {
+  const group = input.parentElement;
+  const errorSpan = group.querySelector(".error-msg");
+
+  input.classList.remove("error-border");
+  errorSpan.innerText = "";
+}
